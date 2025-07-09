@@ -120,10 +120,7 @@ class ly200 {
 			$data['SmtpUserName'] = $config_row['SmtpUserName'];
 			$data['SmtpPassword'] = $config_row['SmtpPassword'];
 		}
-		$data['sign'] = curl::sign(c('ApiKey'), $data);
-		// d($data);exit;
-		// return ly200_email::send($data);
-		return curl::api('https://api.ly200.com/gateway/', c('ApiKey'), $data);
+		return curl::api('https://api.lianyayun.com/gateway/lyy-sign/email/send', c('Apikey'), $data);
 	}
 
 	public static function send_sms($MobilePhone, $Contents, $SmsSign=''){
